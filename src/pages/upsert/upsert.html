@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title> Add </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="upsert()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+  
+<ion-content class="page-upsert">
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Subject</ion-label>
+      <ion-input type="text" [(ngModel)]="subject"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Category</ion-label>
+      <ion-input type="text" [(ngModel)]="category"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Amount</ion-label>
+      <ion-input type="number" [(ngModel)]="amount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Time</ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="displayTime" (ngModelChange)="updateTime()"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Description</ion-label>
+      <ion-textarea [(ngModel)]="description"></ion-textarea>
+    </ion-item>
+  </ion-list>
+</ion-content>
+  

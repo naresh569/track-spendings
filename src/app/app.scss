@@ -14,3 +14,40 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.align-right {
+    float: right;
+}
+
+.action-sheet-md .action-sheet-icon {
+    margin-right: 10px !important;
+    margin-bottom: 4px !important;
+}
+
+/* Remove all the border styles on focus, has valid value */
+.item-input.item-input-has-focus:last-child,
+.item-input.input-has-focus:last-child {
+    border-bottom-color: #dedede !important;
+    box-shadow: none !important;
+}
+.item-input.item-input-has-focus .item-inner,
+.item-input.input-has-focus .item-inner {
+    border-bottom-color: #dedede !important;
+    box-shadow: none !important;
+}
+.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom-color: #dedede !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child,
+.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
+  border-bottom-color: #dedede !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+[ion-fixed] {
+    width: 100%;
+}

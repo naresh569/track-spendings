@@ -1,3 +1,31 @@
 page-home {
-
+    ion-card {
+        height: 150px;
+        position: relative;
+        ion-icon {
+            float: right;
+        }
+        ion-card-content {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    }
+    ion-card-content {
+        div.display-amount {
+            font-size: 2rem !important;
+            text-align: right;
+        }
+        div.display-date {
+            text-align: right;
+        }
+        div.display-chart {
+            position: absolute;
+            bottom: 20px;
+        }
+        div.display-nav {
+            text-align: right;
+            font-size: 2rem !important;
+        }
+    }
 }

@@ -1,0 +1,123 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Analyse
+        </ion-title>
+        <ion-buttons end>
+            <button class="display-sum-spendings" ion-button icon-only>
+                &#8377; {{ sumSpendings }}
+            </button>
+            <button ion-button icon-only (click)="switchView()">
+                <ion-icon *ngIf="view === 'records'" name="stats"></ion-icon>
+                <ion-icon *ngIf="view === 'chart'" name="list"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <!-- <div ion-fixed>
+        <ion-list no-lines>
+            <ion-item>
+                <ion-label>Filter By</ion-label>
+                <ion-select [(ngModel)]="filterBy" right>
+                    <ion-option *ngFor="let each of filterValues" [value]="each.value">{{ each.displayName }}</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+    </div> -->
+    <!-- <div ion-fixed>
+        <ion-card *ngIf="records.length">
+            <ion-card-content>
+                <div class="display-chart" *ngIf="barChartData.length">
+                    <canvas baseChart height="200"
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+                </div>
+                </ion-card-content>
+        </ion-card>
+    </div> -->
+    <!-- <ion-card class="display-date-header">
+        <ion-card-header>
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-1>
+                        <button ion-button icon-only clear color="dark" (click)="prevDate()">
+                            <ion-icon md="ios-arrow-back"></ion-icon>
+                        </button>
+                    </ion-col>
+                    <ion-col col-2 class="display-date">
+                        {{ date }}
+                    </ion-col>
+                    <ion-col col-6>
+                        <div>{{ month + ", " + year }}</div>
+                        <div>{{ day }}</div>
+                    </ion-col>
+                    <ion-col col-2>
+                        <div class="display-sum-spendings">
+                            &#8377; {{ sumSpendings }}
+                        </div>
+                    </ion-col>
+                    <ion-col col-1>
+                        <button ion-button icon-only clear color="dark" (click)="nextDate()">
+                            <ion-icon md="ios-arrow-forward"></ion-icon>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-header>
+    </ion-card> -->
+    <div *ngIf="view === 'chart'">
+        <ion-card *ngIf="records.length">
+            <ion-card-content>
+                <div class="display-chart" *ngIf="barChartData.length">
+                    <canvas baseChart height="200"
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+                </div>
+                </ion-card-content>
+        </ion-card>
+    </div>
+    <div *ngIf="view === 'records'">
+        <ion-card *ngFor="let record of records" (dblclick)="displayMore(record)">
+            <ion-card-header>
+                <span class="align-right display-amount" *ngIf="record.amount">
+                    &#8377; {{ record.amount }}
+                </span>
+                {{ record.subject }}
+            </ion-card-header>
+            <ion-card-content>
+                <div>
+                    <ion-icon name="link"></ion-icon>
+                    {{ record.category }}
+                </div>
+                <div>
+                    <ion-icon name="time"></ion-icon>
+                    {{ record.time | date:'medium' }}
+                    <ion-icon class="align-right display-actions" name="more" (click)="displayActions(record)"></ion-icon>
+                </div>
+                <!-- <div *ngIf="showMoreOfRecord !== record.id">
+                    <ion-icon class="display-more" name="arrow-dropright" (click)="displayMore(record)"></ion-icon>
+                    more..
+                </div>
+                <div *ngIf="showMoreOfRecord === record.id">
+                    <ion-icon class=" display-more" name="arrow-dropdown" (click)="displayMore(record)"></ion-icon>
+                    less..
+                </div> -->
+                <div class="display-more" *ngIf="record.description" [hidden]="showMoreOfRecord !== record.id">
+                    {{ record.description }}
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

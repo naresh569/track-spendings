@@ -1,0 +1,28 @@
+page-upsert {
+    ion-list {
+        margin-top: 5px !important;
+
+        ion-label {
+            // color: #000 !important;
+        }
+
+        /* Align all input values to right */
+        ion-input {
+            input {
+                text-align: right;
+            }
+        }
+        ion-textarea {
+            textarea {
+                text-align: right;
+            }
+        }
+        ion-datetime {
+            width: 100%;
+            .datetime-text {
+                text-align: right;
+            }
+        }
+    }
+}
+

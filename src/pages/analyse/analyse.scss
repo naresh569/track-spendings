@@ -1,0 +1,44 @@
+page-analyse {
+    .display-sum-spendings {
+        font-size: 2rem;
+        margin-top: 2px;
+    }
+    .display-more {
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        margin-top: 5px;
+    }
+    // .scroll-content {
+    //     margin-top: 297px !important;
+    // }
+
+    .display-date {
+        font-size: 3rem !important;
+        text-align: right;
+    }
+
+    .display-date-header {
+        .grid {
+            padding: 0;
+        }
+        [col-2] {
+            padding: 9px 5px;
+        }
+        [col-6] {
+            padding: 8px 5px;
+        }
+        .button-md {
+            margin: 4px 0 !important;
+            text-align: center;
+        }
+        ion-icon {
+            padding: 0 !important;
+        }
+        .card-header-md {
+            font-size: 1.4rem;
+        }
+        .display-sum-spendings {
+            margin-top: 6px;
+        }
+    }
+
+}
